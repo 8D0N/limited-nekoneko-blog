@@ -15,18 +15,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "限界ねこねこブログ",
-  description: "限界ねこねこプログラマーの日常ブログにゃ！",
+  title: "限界ねこねこエンジニアの技術ブログ",
+  description: "深夜のバグ修正、締切に追われる日々、そんな限界プログラマーの日常をお届けするにゃ...",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ja">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body suppressHydrationWarning={true} className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <nav className="border-b">
           <div className="container mx-auto px-4 py-4">
             <div className="flex justify-between items-center">

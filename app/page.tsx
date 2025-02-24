@@ -10,6 +10,13 @@ interface BlogPost {
 
 const posts: BlogPost[] = [
   {
+    id: 4,
+    title: "【深夜限定】限界プログラマーが選ぶ！夜間作業明けのラーメンBEST3にゃ！",
+    excerpt: "徹夜作業明けに食べたい、都内の深夜営業ラーメン店を紹介するにゃ！疲れた体に染み渡る一杯を見つけたにゃ...",
+    date: "2024-03-23",
+    tags: ["限界開発", "ラーメン", "グルメ", "深夜営業"]
+  },
+  {
     id: 3,
     title: "【ガチレビュー】エナジードリンク全種類飲み比べ2025年版にゃ！",
     excerpt: "限界プログラマーの相棒、エナジードリンクの新作が出たので、全種類飲み比べてみたにゃ！（肝臓に優しくないので真似しないでにゃ...）",
@@ -31,11 +38,11 @@ const posts: BlogPost[] = [
     tags: ["限界開発", "エナドリ", "健康"]
   },
   {
-    id: 4,
-    title: "【深夜限定】限界プログラマーが選ぶ！夜間作業明けのラーメンBEST3にゃ！",
-    excerpt: "徹夜作業明けに食べたい、都内の深夜営業ラーメン店を紹介するにゃ！疲れた体に染み渡る一杯を見つけたにゃ...",
-    date: "2024-03-23",
-    tags: ["限界開発", "ラーメン", "グルメ", "深夜営業"]
+    id: 5,
+    title: "猫の日の過ごし方 - 限界ねこねこエンジニアの場合",
+    excerpt: "にゃんにゃんにゃ～ん！今日は2月22日猫の日！徹夜コーディングで作った猫型キーボードとNyanScriptで限界プログラミングしたにゃ...（記事書いてる途中で10回寝落ちした）",
+    date: "2024-02-22",
+    tags: ["猫の日", "限界開発", "NyanScript", "寝落ち"]
   }
 ];
 
@@ -46,11 +53,12 @@ export default function Home() {
         <section className="mb-12 text-center">
           <h1 className="text-4xl font-bold mb-4">
             限界ねこねこの<br />
-            エンジニア日記
+            エンジニア日記にゃ！
           </h1>
           <p className="text-gray-600">
             深夜のバグ修正、締切に追われる日々、<br />
-            そんな限界プログラマーの日常をお届けするにゃ...
+            そんな限界プログラマーの日常をお届けするにゃ！<br />
+            （たまに意識飛んでるけど気にしないでにゃ...）
           </p>
         </section>
 
@@ -58,23 +66,23 @@ export default function Home() {
           {posts.map(post => (
             <article
               key={post.id}
-              className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
+              className="border dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow dark:bg-gray-800"
             >
               <div className="mb-4">
-                <time className="text-gray-500 text-sm">{post.date}</time>
+                <time className="text-gray-500 dark:text-gray-400 text-sm">{post.date}</time>
                 <h2 className="text-2xl font-bold mt-2 mb-3">
-                  <Link href={`/blog/${post.id}`} className="hover:text-gray-600">
+                  <Link href={`/blog/${post.id}`} className="hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300">
                     {post.title}
                   </Link>
                 </h2>
-                <p className="text-gray-600">{post.excerpt}</p>
+                <p className="text-gray-600 dark:text-gray-300">{post.excerpt}</p>
               </div>
               <div className="flex gap-2">
                 {post.tags.map(tag => (
                   <Link
                     key={tag}
                     href={`/tags/${tag}`}
-                    className="text-sm px-3 py-1 bg-gray-100 rounded-full hover:bg-gray-200"
+                    className="text-sm px-3 py-1 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
                   >
                     #{tag}
                   </Link>

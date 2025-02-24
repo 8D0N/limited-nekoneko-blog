@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { LikeButtons } from './LikeButtons';
 
 interface BlogPost {
     id: number;
@@ -380,7 +381,7 @@ export default async function BlogPost({ params }: Props) {
                                 <Link
                                     key={tag}
                                     href={`/tags/${tag}`}
-                                    className="text-sm px-3 py-1 bg-gray-100 rounded-full hover:bg-gray-200 no-underline"
+                                    className="text-sm px-3 py-1 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 no-underline"
                                 >
                                     #{tag}
                                 </Link>
@@ -393,18 +394,11 @@ export default async function BlogPost({ params }: Props) {
                     {post.content}
                 </div>
 
-                <div className="mt-12 pt-8 border-t">
+                <div className="mt-12 pt-8 border-t dark:border-gray-700">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <button className="flex items-center gap-2 px-4 py-2 border rounded-full hover:bg-gray-100">
-                                👍 いいにゃ！
-                            </button>
-                            <button className="flex items-center gap-2 px-4 py-2 border rounded-full hover:bg-gray-100">
-                                🐟 おさかなをあげる
-                            </button>
-                        </div>
+                        <LikeButtons />
                         <div className="flex gap-4">
-                            <Link href="/blog" className="text-gray-600 hover:text-gray-900">
+                            <Link href="/blog" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200">
                                 他の記事を読むにゃ →
                             </Link>
                         </div>
