@@ -361,11 +361,11 @@ export default async function BlogPost({ params }: Props) {
     }
 
     return (
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="mb-8">
                 <Link
                     href="/"
-                    className="text-gray-600 hover:text-gray-900 flex items-center gap-2"
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 flex items-center gap-2 text-sm sm:text-base"
                 >
                     ← ホームに戻るにゃ
                 </Link>
@@ -373,15 +373,15 @@ export default async function BlogPost({ params }: Props) {
 
             <article className="prose dark:prose-invert max-w-none">
                 <div className="mb-8">
-                    <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-                    <div className="flex gap-4 items-center text-gray-600">
+                    <h1 className="text-2xl sm:text-4xl font-bold mb-4">{post.title}</h1>
+                    <div className="flex flex-wrap gap-2 sm:gap-4 items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
                         <time>{post.date}</time>
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                             {post.tags.map(tag => (
                                 <Link
                                     key={tag}
                                     href={`/tags/${tag}`}
-                                    className="text-sm px-3 py-1 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 no-underline"
+                                    className="text-xs sm:text-sm px-2 sm:px-3 py-1 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 no-underline"
                                 >
                                     #{tag}
                                 </Link>
@@ -390,15 +390,18 @@ export default async function BlogPost({ params }: Props) {
                     </div>
                 </div>
 
-                <div className="markdown-content whitespace-pre-line">
+                <div className="markdown-content whitespace-pre-line text-sm sm:text-base">
                     {post.content}
                 </div>
 
-                <div className="mt-12 pt-8 border-t dark:border-gray-700">
-                    <div className="flex items-center justify-between">
+                <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t dark:border-gray-700">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                         <LikeButtons />
                         <div className="flex gap-4">
-                            <Link href="/blog" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200">
+                            <Link
+                                href="/blog"
+                                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 text-sm sm:text-base"
+                            >
                                 他の記事を読むにゃ →
                             </Link>
                         </div>

@@ -48,41 +48,48 @@ const posts: BlogPost[] = [
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-8 row-start-2 items-center">
+    <div className="min-h-screen px-4 sm:px-8 py-8 sm:py-16">
+      <main className="max-w-4xl mx-auto">
         <section className="mb-12 text-center">
-          <h1 className="text-4xl font-bold mb-4">
-            限界ねこねこの<br />
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4">
+            限界ねこねこの<br className="sm:hidden" />
             エンジニア日記にゃ！
           </h1>
-          <p className="text-gray-600">
-            深夜のバグ修正、締切に追われる日々、<br />
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+            深夜のバグ修正、締切に追われる日々、<br className="sm:hidden" />
             そんな限界プログラマーの日常をお届けするにゃ！<br />
             （たまに意識飛んでるけど気にしないでにゃ...）
           </p>
         </section>
 
-        <div className="grid gap-8 max-w-4xl">
+        <div className="space-y-6 sm:space-y-8">
           {posts.map(post => (
             <article
               key={post.id}
-              className="border dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow dark:bg-gray-800"
+              className="border dark:border-gray-700 rounded-lg p-4 sm:p-6 hover:shadow-lg transition-shadow dark:bg-gray-800"
             >
               <div className="mb-4">
-                <time className="text-gray-500 dark:text-gray-400 text-sm">{post.date}</time>
-                <h2 className="text-2xl font-bold mt-2 mb-3">
-                  <Link href={`/blog/${post.id}`} className="hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300">
+                <time className="text-gray-500 dark:text-gray-400 text-sm">
+                  {post.date}
+                </time>
+                <h2 className="text-xl sm:text-2xl font-bold mt-2 mb-3">
+                  <Link
+                    href={`/blog/${post.id}`}
+                    className="hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300"
+                  >
                     {post.title}
                   </Link>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300">{post.excerpt}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                  {post.excerpt}
+                </p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {post.tags.map(tag => (
                   <Link
                     key={tag}
                     href={`/tags/${tag}`}
-                    className="text-sm px-3 py-1 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+                    className="text-xs sm:text-sm px-2 sm:px-3 py-1 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
                   >
                     #{tag}
                   </Link>
