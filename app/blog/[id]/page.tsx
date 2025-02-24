@@ -172,12 +172,12 @@ RAIZINは強すぎて限界ねこねこには刺激が強いかもにゃ...
     }
 ];
 
-interface PageProps {
+type Props = {
     params: {
         id: string;
     };
-    searchParams: Record<string, string | string[]>;
-}
+    searchParams: { [key: string]: string | string[] | undefined };
+};
 
 export async function generateStaticParams() {
     return posts.map((post) => ({
@@ -185,7 +185,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function BlogPost({ params }: PageProps) {
+export default async function BlogPost({ params }: Props) {
     const postId = parseInt(params.id);
     const post = posts.find(p => p.id === postId);
 
