@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 
 interface BlogPost {
     id: number;
@@ -173,8 +172,22 @@ RAIZINは強すぎて限界ねこねこには刺激が強いかもにゃ...
     }
 ];
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
-    const post = posts.find(p => p.id === parseInt(params.id));
+interface PageProps {
+    params: {
+        id: string;
+    };
+    searchParams: {};
+}
+
+export async function generateStaticParams() {
+    return posts.map((post) => ({
+        id: post.id.toString(),
+    }));
+}
+
+export default function BlogPost({ params }: PageProps) {
+    const postId = parseInt(params.id);
+    const post = posts.find(p => p.id === postId);
 
     if (!post) {
         notFound();
