@@ -176,7 +176,7 @@ interface PageProps {
     params: {
         id: string;
     };
-    searchParams: {};
+    searchParams: Record<string, string | string[]>;
 }
 
 export async function generateStaticParams() {
